@@ -25,15 +25,17 @@ public class MainActivity extends AppCompatActivity {
         binding.appCompatButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent k = new Intent(getApplication(), DoctorActivity.class);
+                Intent k = new Intent(getApplication(), TaskTwoActivity.class);
                 startActivity(k);
+
             }
         });
 
         binding.appCompatButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent k = new Intent(getApplication(), TaskTwoActivity.class);
+
+                Intent k = new Intent(getApplication(), DoctorActivity.class);
                 startActivity(k);
             }
         });
