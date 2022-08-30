@@ -3,8 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/#java/Task/Task/app/src/main/res/drawable/btn.xml" value="0.1725" />
         <entry key="..\:/#java/Task/Task/app/src/main/res/layout/activity_doctor.xml" value="0.15806159420289856" />
+        <entry key="..\:/#java/Task/Task/app/src/main/res/layout/activity_doctor_detail.xml" value="0.17864583333333334" />
         <entry key="..\:/#java/Task/Task/app/src/main/res/layout/activity_main.xml" value="0.15806159420289856" />
+        <entry key="..\:/#java/Task/Task/app/src/main/res/layout/activity_task_two.xml" value="0.1" />
+        <entry key="..\:/#java/Task/Task/app/src/main/res/layout/content_main.xml" value="0.15217391304347827" />
+        <entry key="..\:/#java/Task/Task/app/src/main/res/layout/dialog_layout.xml" value="0.1" />
         <entry key="..\:/#java/Task/Task/app/src/main/res/layout/recycler_row.xml" value="0.15806159420289856" />
       </map>
     </option>

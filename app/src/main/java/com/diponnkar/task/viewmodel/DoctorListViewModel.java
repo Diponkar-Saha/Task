@@ -1,20 +1,18 @@
 package com.diponnkar.task.viewmodel;
 
-import android.util.Log;
-
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.diponnkar.model.Doctor;
-import com.diponnkar.model.DoctorResponse;
-import com.diponnkar.task.service.APIService;
-import com.diponnkar.task.service.RetroInstance;
+;
+import com.diponnkar.task.model.Doctor;
+import com.diponnkar.task.model.DoctorResponse;
+import com.diponnkar.task.data.remote.APIService;
+import com.diponnkar.task.data.remote.RetroInstance;
 
 
 
 import java.util.List;
-import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,14 +31,16 @@ public class DoctorListViewModel extends ViewModel {
     }
     public void makeApiCall(){
         APIService apiService= RetroInstance.getRetroClient().create(APIService.class);
-        Call<Response<DoctorResponse>> call=apiService.getDoctorList();
-        call.enqueue(new Callback<Response<DoctorResponse>>() {
+        Call<DoctorResponse> call=apiService.getDoctorList();
+        call.enqueue(new Callback<DoctorResponse>() {
 
             @Override
-            public void onResponse(@NonNull Call<Response<DoctorResponse>> call, @NonNull Response<Response<DoctorResponse>> response) {
+            public void onResponse(@NonNull Call<DoctorResponse> call, @NonNull Response<DoctorResponse> response) {
 
-                if(response.body().body().getDoctors()!=null) {
-                    doctorList.postValue(response.body().body().getDoctors());
+                if(response.body().getDoctors()!=null) {
+                    doctorList.setValue(response.body().getDoctors());
+                }else{
+                    doctorList.setValue(null);
                 }
 
 
@@ -48,8 +48,8 @@ public class DoctorListViewModel extends ViewModel {
             }
 
             @Override
-            public void onFailure(Call<Response<DoctorResponse>> call, Throwable t) {
-                doctorList.postValue(null);
+            public void onFailure(Call<DoctorResponse> call, Throwable t) {
+                doctorList.setValue(null);
             }
         });
     }
